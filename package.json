@@ -1,6 +1,6 @@
 {
   "name": "tinyurl-client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "TinyURL JavaScript client",
   "main": "dist/main.js",
   "module": "dist/main.js",
@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha -r esm --recursive tests",
-    "clean":"rm -rf dist",
+    "clean": "rm -rf dist",
     "build": "yarn clean && webpack",
     "deploy": "yarn build && yarn publish"
   },
