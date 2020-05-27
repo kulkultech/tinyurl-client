@@ -3,7 +3,8 @@ import * as axios from "axios";
 const shortenUrl = async (url, alias = "") => {
   const encodedUrl = encodeURI(url);
   const response = await axios.get(
-    `https://tinyurl.com/create.php?source=indexpage&url=${encodedUrl}&alias=${alias}`
+    `https://cors-anywhere.herokuapp.com/https://tinyurl.com/create.php?source=indexpage&url=${encodedUrl}&alias=${alias}`,
+    { headers: { Origin: "https://tinyurl.com" } }
   );
 
   const el = document.createElement("html");

@@ -1,6 +1,6 @@
 {
-  "name": "tinyurl-client",
-  "version": "1.0.3",
+  "name": "@kulkul/tinyurl-client",
+  "version": "1.0.4",
   "description": "TinyURL JavaScript client",
   "main": "dist/main.js",
   "module": "dist/main.js",
@@ -11,7 +11,7 @@
     "test": "mocha -r esm --recursive tests",
     "clean": "rm -rf dist",
     "build": "yarn clean && webpack",
-    "deploy": "yarn build && yarn publish"
+    "deploy": "yarn build && yarn publish --access public"
   },
   "dependencies": {},
   "devDependencies": {
