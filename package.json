@@ -2,22 +2,25 @@
   "name": "tinyurl-client",
   "version": "1.0.0",
   "description": "TinyURL JavaScript client",
-  "main": "index.js",
+  "main": "dist/main.js",
+  "module": "dist/main.js",
   "repository": "git@github.com:kulkultech/tinyurl-client.git",
   "author": "kulkultech",
   "license": "MIT",
   "scripts": {
-    "test": "mocha -r esm --recursive tests"
+    "test": "mocha -r esm --recursive tests",
+    "build": "webpack"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "cheerio": "^1.0.0-rc.3",
     "axios": "^0.19.2",
     "chai": "^4.2.0",
+    "cheerio": "^1.0.0-rc.3",
     "esm": "^3.2.25",
     "mocha": "^7.2.0",
     "prettier": "^2.0.5",
-    "sinon": "^9.0.2"
+    "sinon": "^9.0.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   }
 }
