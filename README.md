@@ -20,3 +20,13 @@ shortenUrl("https://kulkul.tech").then((result) => {
     console.log({ result }); // https://tinyurl.com/<slug>
 });
 ```
+
+To use it using alias you can do the following
+
+```javascript
+import shortenUrl from "@kulkul/tinyurl-client";
+
+shortenUrl("https://kulkul.tech", "shorted-kulkul").then((result) => {
+    console.log({ result }); // https://tinyurl.com/shorted-kulkul
+});
+```
