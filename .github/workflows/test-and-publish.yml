@@ -30,11 +30,6 @@ jobs:
       
       - name: Run tests
         run: yarn test
-      
-      - name: Build
-        run: yarn build
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
 
   publish:
     needs: test
@@ -55,8 +50,6 @@ jobs:
       
       - name: Build
         run: yarn build
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
       
       - name: Publish to NPM
         run: yarn publish --access public --non-interactive
