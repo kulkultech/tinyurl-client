@@ -1,6 +1,6 @@
 {
   "name": "@kulkul/tinyurl-client",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "TinyURL JavaScript client",
   "main": "dist/main.js",
   "module": "dist/main.js",
