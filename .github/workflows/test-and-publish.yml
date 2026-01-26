@@ -32,7 +32,10 @@ jobs:
         run: yarn test
       
       - name: Build
-        run: export NODE_OPTIONS=--openssl-legacy-provider && yarn build
+        shell: bash
+        run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
+          yarn build
 
   publish:
     needs: test
@@ -52,7 +55,10 @@ jobs:
         run: yarn install --frozen-lockfile
       
       - name: Build
-        run: export NODE_OPTIONS=--openssl-legacy-provider && yarn build
+        shell: bash
+        run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
+          yarn build
       
       - name: Publish to NPM
         run: yarn publish --access public --non-interactive
