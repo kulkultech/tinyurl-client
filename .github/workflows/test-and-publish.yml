@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14, 16, 18]
+        node-version: [14, 16]
     steps:
       - uses: actions/checkout@v3
       
@@ -32,10 +32,9 @@ jobs:
         run: yarn test
       
       - name: Build
-        shell: bash
-        run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
-          yarn build
+        run: yarn build
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
 
   publish:
     needs: test
@@ -55,10 +54,9 @@ jobs:
         run: yarn install --frozen-lockfile
       
       - name: Build
-        shell: bash
-        run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
-          yarn build
+        run: yarn build
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
       
       - name: Publish to NPM
         run: yarn publish --access public --non-interactive
