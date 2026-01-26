@@ -18,16 +18,19 @@ Easily use TinyURL in your browser.
 import shortenUrl from "@kulkul/tinyurl-client";
 
 shortenUrl("https://kulkul.tech").then((result) => {
-    console.log({ result }); // https://tinyurl.com/<slug>
+    console.log({ result }); // https://tinyurl.com/<random-slug>
 });
 ```
 
-To use it using alias you can do the following
+## Important Note on Custom Aliases
+
+**Custom aliases are no longer supported.** The underlying TinyURL API endpoint used by this client does not support custom aliases. Any alias parameter provided will be ignored, and a random slug will be generated instead.
 
 ```javascript
 import shortenUrl from "@kulkul/tinyurl-client";
 
-shortenUrl("https://kulkul.tech", "shorted-kulkul").then((result) => {
-    console.log({ result }); // https://tinyurl.com/shorted-kulkul
+// Alias parameter is deprecated and will be ignored
+shortenUrl("https://kulkul.tech", "my-custom-alias").then((result) => {
+    console.log({ result }); // https://tinyurl.com/<random-slug> (NOT my-custom-alias)
 });
 ```
