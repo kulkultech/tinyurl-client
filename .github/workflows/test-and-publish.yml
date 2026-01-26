@@ -35,6 +35,9 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     if: github.event_name == 'release' && github.event.action == 'created'
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v3
       
@@ -52,6 +55,4 @@ jobs:
         run: yarn build
       
       - name: Publish to NPM
-        run: yarn publish --access public --non-interactive
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --provenance --access public
