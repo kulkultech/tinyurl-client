@@ -1,15 +1,15 @@
 import * as axios from "axios";
 
 const shortenUrl = async (url, alias = "") => {
-  const encodedUrl = encodeURI(url);
-  const response = await axios.get(
-    `https://cors-anywhere.herokuapp.com/https://tinyurl.com/create.php?source=indexpage&url=${encodedUrl}&alias=${alias}`,
-    { headers: { 'X-Requested-With': 'XMLHttpRequest' } }
+  const response = await axios.post(
+    "https://tinyurl-rest-wrapper.onrender.com/",
+    { url },
+    { headers: { "Content-Type": "application/json" } }
   );
 
-  const el = document.createElement("html");
-  el.innerHTML = response.data;
-  return el.querySelector("#copy_div").href;
+  // Note: Custom aliases are not supported by the TinyURL api-create.php endpoint
+  // that this wrapper uses. The alias parameter is ignored.
+  return response.data.tinyurl;
 };
 
 export default shortenUrl;
